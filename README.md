@@ -1,64 +1,106 @@
-# Frontend Mentor - Tip calculator app solution
+# Tip Calculator — Hybrid Android Application
 
-This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+A React-based Tip Calculator packaged as a Hybrid Android application using **Capacitor**. The project demonstrates how an existing web application can be adapted for Android without rewriting the frontend in native Kotlin.
 
-## Table of contents
+## Features
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+- Calculate tips based on the bill amount and selected tip percentage.
+- View the calculated tip and total bill.
+- Use the application through a mobile-friendly interface.
+- Run the React application in a web browser or as an Android application.
 
+_The exact features depend on the functionality implemented in the original React application._
 
-## Overview
+## Technology Stack
 
-### The challenge
+- **Frontend:** React, JavaScript, HTML, CSS
+- **Hybrid Framework:** Capacitor 6
+- **Android Platform:** Android Studio, Gradle
+- **Package Management:** npm
 
-Users should be able to:
+## Project Structure
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Calculate the correct tip and total cost of the bill per person
+```text
+tip-calculator-app/
+├── public/                 # Static assets
+├── src/                    # React application source
+├── build/                  # Production web build
+├── android/                # Native Android project
+├── APK/
+│   └── tip-calculator.apk   # Android APK
+├── capacitor.config.*      # Capacitor configuration
+├── package.json
+└── README.md
+```
 
-### Screenshot
+## Run the Web Application
 
-![](./readme-assets/screenshot.png)
-![](./readme-assets/mobile.png)
+Install the project dependencies:
 
-### Links
+```bash
+npm install
+```
 
-- Solution URL: [App.js File](./src/App.js)
-- Live Site URL: [Tip Calculator App](https://tip-calculator-70d66.web.app/)
+Start the development server:
 
-## My process
+```bash
+npm start
+```
 
-### Built with
+To test the existing production build locally:
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- [React](https://reactjs.org/) - JS library
-- Context API
+```bash
+npx serve -s build
+```
 
-### What I learned
-This was the first frontend mentor challenge that I did with React . And it was a wonderful experience to manage states in Context and manipulate them
+## Build the Android Application
 
-### Useful resources
+Ensure Node.js, JDK 17, Android Studio and the Android SDK are installed.
 
-- [MDN dev docs](https://developer.mozilla.org/) - This helped me for tricks and tips and short lookups for CSS and Javascript.
-- [Kevin Powell youtube channel](https://www.youtube.com/kepowob) - This helped me  understanding concepts of flexbox and box-shadows in CSS.
-- [Code With harry React Playlist](https://www.youtube.com/playlist?list=PLu0W_9lII9agx66oZnT6IyhcMIbUMNMdt) - Playlist with which I started learning React
-- [Sonny Sangha Youtube](https://www.youtube.com/c/SonnySangha) - His videos helped to understand concept and use cases of different react hooks
+Sync the web assets with the Android project:
+
+```bash
+npx cap sync android
+```
+
+Open the Android project:
+
+```bash
+npx cap open android
+```
+
+In Android Studio, select:
+
+**Build → Build Bundle(s) / APK(s) → Build APK(s)**
+
+The generated debug APK is typically located at:
+
+```text
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+## Download the APK
+
+The Android APK is available in the [`APK/`](APK/) directory.
+
+Download `tip-calculator.apk`, transfer it to an Android device, and install it. Your device may ask you to allow installation from that source.
+
+## Hybrid Application Architecture
+
+The application uses React for its user interface and application logic. Capacitor packages the production web assets inside a native Android project, which runs the application through an Android WebView.
+
+```text
+React Web Application
+         ↓
+Production Build
+         ↓
+Capacitor
+         ↓
+Native Android Project
+         ↓
+      APK File
+```
 
 ## Author
 
-- Frontend Mentor - [@Aryan-ki-codepanti](https://www.frontendmentor.io/profile/Aryan-ki-codepanti)
-- Twitter - [@AryanSe73817078](https://www.twitter.com/AryanSe73817078)
-- Youtube - [Channel: Coding Tiger](https://www.youtube.com/channel/UCkz7TnVuNBGEQOTa77lmZfA)
+**Aryan Sethi**
